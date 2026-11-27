@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette: #EFF3F1  #22333B  #5E8B7E  #C7A17A  (+ tints of these) */
+  --color-ink: #22333B;      /* page background (palette dark) */
+  --color-panel: #2B3C44;    /* cards: ink lifted slightly toward cloud */
+  --color-panel2: #34464E;   /* inputs / hover surfaces */
+  --color-line: #3F5A5A;     /* borders: ink blended with sage */
+  --color-mist: #A9B8B3;     /* secondary text: cloud blended with sage */
+  --color-cloud: #EFF3F1;    /* primary text (palette light) */
+  --color-sage: #5E8B7E;     /* palette green: fills, borders, charts */
+  --color-sand: #C7A17A;     /* palette tan: CTAs, accent text, warnings */
+  --color-clay: #E08A6E;     /* errors only - warm tint of sand, for contrast */
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --shadow-soft: 0 8px 30px rgba(18, 28, 33, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+body {
+  background-color: #22333B;
+  color: #EFF3F1;
+  font-family: 'Inter', sans-serif;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3F5A5A; border-radius: 8px; }
+
+.route-dash {
+  background-image: repeating-linear-gradient(90deg, #5E8B7E 0, #5E8B7E 6px, transparent 6px, transparent 14px);
+  height: 2px;
+}
+
+@keyframes pulse-node {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(94, 139, 126, 0.55); }
+  50% { box-shadow: 0 0 0 6px rgba(94, 139, 126, 0); }
+}
+.node-active {
+  animation: pulse-node 1.6s ease-in-out infinite;
+}
+
+:focus-visible {
+  outline: 2px solid #C7A17A;
+  outline-offset: 2px;
+}
